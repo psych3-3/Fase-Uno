@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timed File Access</title>
+<script>
+    function countdown() {
+        var seconds = 10; // Set the countdown time in seconds
+        var countdownElement = document.getElementById('countdown');
+
+        var interval = setInterval(function() {
+            countdownElement.textContent = seconds + " seconds remaining...";
+            seconds--;
+
+            if (seconds < 0) {
+                clearInterval(interval);
+                document.getElementById('file-link').style.display = 'block'; // Show file link
+                countdownElement.style.display = 'none'; // Hide countdown
+            }
+        }, 1000);
+    }
+</script>
+</head>
+<body onload="countdown()">
+    <h1>File will be available soon</h1>
+    <div id="countdown"></div>
+    <a id="file-link" href="YOUR_FILE_URL_HERE" style="display:none;">Download File</a>
+</body>
+</html>
